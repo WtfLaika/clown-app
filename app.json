@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "clown-app",
+    "slug": "clown-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+
+    "splash": {
+      "image": "./assets/images/splash-screen.png",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "splash": { "backgroundColor": "#000000" },
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wtflaika.clownapp",
+      "userInterfaceStyle": "automatic",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets."
+      }
+    },
+    "android": {
+      "splash": { "backgroundColor": "#000000" },
+      "userInterfaceStyle": "automatic",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.wtflaika.clownapp"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/icon.png"
+    },
+    "plugins": [
+      ["expo-router"],
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
