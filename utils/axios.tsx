@@ -1,14 +1,12 @@
-import axios from 'axios'
+import axios from "axios";
 
-const apiUrl = process.env.EXPO_PUBLIC_API_URL
-const apiVersion = `v${process.env.EXPO_PUBLIC_API_VERSION}`
-const baseUrl = `${apiUrl}${apiVersion}`
+const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 
 export const axiosInstance = axios.create({
-  baseURL: baseUrl,
+  baseURL: apiUrl,
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
+    Accept: "application/json",
+    "Content-Type": "application/json",
   },
-  responseType: 'json',
-})
+  responseType: "json",
+});

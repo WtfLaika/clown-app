@@ -1,15 +1,12 @@
-import {
-  Pressable,
-  SafeAreaView,
-  Text,
-  TextInput,
-  View,
-} from "@/components/Themed";
-import React, { useState } from "react";
+import { SafeAreaView, Text, TextInput, View } from "@/components/Themed";
+import React, { useEffect, useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Link } from "expo-router";
-import { StyleSheet } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import { MultiSelect } from "react-native-element-dropdown";
+import { useJokeApi } from "@/hooks/api/useJokeApi";
+import { LoaderContainer } from "@/components/LoaderContainer";
+import { debounce } from "lodash";
 
 const ITEM_HEIGHT = 200;
 const defaultCategory = { id: "1", label: "Any" };
@@ -25,28 +22,52 @@ const categoriesList = [
 // Add dark mode
 export default function HomeScreen() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([
-    defaultCategory.id,
+    defaultCategory.label,
   ]);
 
   const [isFocus, setIsFocus] = useState(false);
   // MOVE TO SEPARATE COMPONENT
-  const [inputValue, setInputValue] = useState("");
+  const [search, setSearch] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const { useAll } = useJokeApi();
+  const { data, isLoading } = useAll({
+    categories: selectedCategories,
+    search: searchQuery,
+  });
+
+  let debounceTimer: ReturnType<typeof setTimeout>;
+
+  useEffect(() => {
+    debounceTimer = setTimeout(() => {
+      setSearchQuery(search);
+    }, 1000);
+
+    return () => clearTimeout(debounceTimer);
+  }, [search]);
+
+  const onFocus = () => {
+    setIsFocus(true);
+  };
+
+  const onBlur = () => {
+    setIsFocus(false);
+  };
   const onChangeCategory = (items: string[]) => {
     // When we have selected "Any" category and trying to select other categories, the "Any" should be unselected
     if (
-      items.includes(defaultCategory.id) &&
-      selectedCategories.includes(defaultCategory.id)
+      items.includes(defaultCategory.label) &&
+      selectedCategories.includes(defaultCategory.label)
     ) {
-      const newValue = items.filter((item) => item !== defaultCategory.id);
+      const newValue = items.filter((item) => item !== defaultCategory.label);
       setSelectedCategories(newValue);
       return;
     }
     // When we have selected other categories and trying to select the "Any", the other categories should be unselected
     if (
-      items.includes(defaultCategory.id) &&
-      !selectedCategories.includes(defaultCategory.id)
+      items.includes(defaultCategory.label) &&
+      !selectedCategories.includes(defaultCategory.label)
     ) {
-      setSelectedCategories([defaultCategory.id]);
+      setSelectedCategories([defaultCategory.label]);
       return;
     }
     setSelectedCategories(items);
@@ -72,9 +93,11 @@ export default function HomeScreen() {
           alwaysRenderSelectedItem
           maxSelect={5}
           labelField="label"
-          valueField="id"
+          valueField="label"
           placeholder="Select category"
           searchPlaceholder="Search..."
+          onFocus={onFocus}
+          onBlur={onBlur}
           onChange={onChangeCategory}
           renderLeftIcon={() => (
             <AntDesign
@@ -85,25 +108,23 @@ export default function HomeScreen() {
             />
           )}
         />
+        <Text style={{ marginTop: 10 }}>Search</Text>
 
         <TextInput
           style={{
             height: 20,
             width: "100%",
-            borderColor: "black",
+            borderColor: "gray",
             borderWidth: 1,
           }}
-          onChangeText={setInputValue}
-          value={inputValue}
+          onChangeText={setSearch}
+          value={search}
         />
-        {/* <FlatList
-          getItemLayout={(_, index) => ({
-            length: ITEM_HEIGHT,
-            offset: ITEM_HEIGHT * index,
-            index,
-          })}
-        /> */}
       </View>
+
+      <LoaderContainer loading={isLoading}>
+        <Text style={{ marginTop: 10 }}>Joke: {data?.setup}</Text>
+      </LoaderContainer>
     </SafeAreaView>
   );
 }

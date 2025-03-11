@@ -95,5 +95,4 @@ export const styles = StyleSheet.create({
   errorMessage: {
     color: "black",
   },
-  errorContainer: { flex: 1, alignContent: "center", justifyContent: "center" },
 });

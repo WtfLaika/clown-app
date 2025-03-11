@@ -1,19 +1,19 @@
 PODS:
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
-  - EXConstants (17.0.6):
+  - EXConstants (17.0.7):
     - ExpoModulesCore
-  - Expo (52.0.35):
+  - Expo (52.0.37):
     - ExpoModulesCore
-  - ExpoAsset (11.0.3):
+  - ExpoAsset (11.0.4):
     - ExpoModulesCore
-  - ExpoFileSystem (18.0.10):
+  - ExpoFileSystem (18.0.11):
     - ExpoModulesCore
-  - ExpoFont (13.0.3):
+  - ExpoFont (13.0.4):
     - ExpoModulesCore
   - ExpoHead (4.0.17):
     - ExpoModulesCore
-  - ExpoKeepAwake (14.0.2):
+  - ExpoKeepAwake (14.0.3):
     - ExpoModulesCore
   - ExpoLinking (7.0.5):
     - ExpoModulesCore
@@ -1353,7 +1353,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-skia (1.11.8):
+  - react-native-skia (1.11.11):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1776,11 +1776,11 @@ PODS:
     - ReactCommon/turbomodule/core
     - Yoga
   - SocketRocket (0.7.1)
-  - VisionCamera (4.6.3):
-    - VisionCamera/Core (= 4.6.3)
-    - VisionCamera/React (= 4.6.3)
-  - VisionCamera/Core (4.6.3)
-  - VisionCamera/React (4.6.3):
+  - VisionCamera (4.6.4):
+    - VisionCamera/Core (= 4.6.4)
+    - VisionCamera/React (= 4.6.4)
+  - VisionCamera/Core (4.6.4)
+  - VisionCamera/React (4.6.4):
     - React-Core
   - Yoga (0.0.0)
 
@@ -2038,13 +2038,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 1dca942403ed9342f98334bf4c3621f011aa7946
   DoubleConversion: f16ae600a246532c4020132d54af21d0ddb2a385
-  EXConstants: 9b47f3f07f01c5afaa23b1fc9e49bb87f70e3576
-  Expo: 684b9146eabc19a5aa6994f8d6b9131f6facbb3b
-  ExpoAsset: 77e4579f19b48d6b3f4055c933e86ce45e80caeb
-  ExpoFileSystem: dfca98dde30460788cb9f6f51f177888fa021934
-  ExpoFont: 8b14db1afebf62e9774613a082e402985f4e747c
+  EXConstants: 0472d3c23d97943fe3505306daf9cde8024365c2
+  Expo: f1d13d22815979ad85a0a59fcf6d23660c813ecd
+  ExpoAsset: a4cbc27a7cd24a6e87eb719603790b2cfa8dd326
+  ExpoFileSystem: 4d2e7f77a41cfde8c3ae98580d872cd49437f993
+  ExpoFont: 773955186469acc5108ff569712a2d243857475f
   ExpoHead: 3d555eb5d0d68c478b9ea259337686c58de22c71
-  ExpoKeepAwake: 1f74cdf53ab3b3aeb7110f18eb053c92e7c3e710
+  ExpoKeepAwake: 2a5f15dd4964cba8002c9a36676319a3394c85c7
   ExpoLinking: 0381341519ca7180a3a057d20edb1cf6a908aaf4
   ExpoModulesCore: 561a787bc626ab9bcfee2a688bd588bf2667405f
   ExpoSplashScreen: 643666b96a84e8d97d55fac43926fb4183c692d9
@@ -2084,7 +2084,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 23ffe602d0f5ca53b861ef8534cb8c63c4479671
   React-microtasksnativemodule: 73fdf0c53b6d50d55de2d5bd9abfb8c006b043a4
   react-native-safe-area-context: 458f6b948437afcb59198016b26bbd02ff9c3b47
-  react-native-skia: 6a537d7c10c7e9ac0bfaf6b9d26f746acc762f6c
+  react-native-skia: 5ad9b4c5f946f2566629c9aeae4c8c967ffca867
   React-nativeconfig: 67fa7a63ea288cb5b1d0dd2deaf240405fec164f
   React-NativeModulesApple: cbf1a34443e1f67b56344547f4b0af69e1c685ba
   React-perflogger: f02ee21d98773121d77993b3c1a8be445840fae3
@@ -2115,7 +2115,7 @@ SPEC CHECKSUMS:
   RNReanimated: 9ee6347ca0aa3cf78cae715455e781728ae142e2
   RNScreens: d022507f2b6d76c73335e9e35aedcf7bb2f791b0
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
-  VisionCamera: 598ab83c6bf4d65f5c32ec54361eed866505d388
+  VisionCamera: b5c2b3c45e641102902a5194af11dc532805221e
   Yoga: 88e46d0f2096eb9762a82c2c45ab23b0880de97d
 
 PODFILE CHECKSUM: a0568d9482f1fea586f3ae1ee161719c053d4767
